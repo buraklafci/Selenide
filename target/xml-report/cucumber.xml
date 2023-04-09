@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="28.977" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="navigations" name="navigations test" time="28.722">
+<system-out><![CDATA[
+Given I navigate to "https://www.google.com"................................passed
+And I navigate to "http://www.amazon.com"...................................passed
+And I wait for 5 seconds....................................................passed
+And I navigate back.........................................................passed
+And I navigate forward......................................................passed
+And I refresh the page......................................................passed
+Then I hold the browser open................................................passed
+]]></system-out>
+</testcase>
+</testsuite>
