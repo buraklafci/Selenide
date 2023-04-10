@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="11.252" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="locators feature" name="TC01_locators" time="11.044">
+<testsuite name="Cucumber" time="8.293" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="assertions2" name="TC02_search for tesla" time="8.089">
 <system-out><![CDATA[
-Given I navigate to "https://testcenter.techproeducation.com/index.php?page=form-authentication".passed
-And I enter username........................................................passed
-And I enter password........................................................passed
-And I enter submit button...................................................passed
-And I wait for 3 seconds....................................................passed
-And I click on logout link..................................................passed
-Then I hold the browser open................................................passed
+Given I navigate to "https://google.com"....................................passed
+When I search for "Tesla"...................................................passed
+Then verify page source contains "Tesla"....................................passed
+Then verify the result should contain "bulundu" keyword.....................passed
+Then the first result in the page sections should contain "Tesla"...........passed
 ]]></system-out>
 </testcase>
 </testsuite>
