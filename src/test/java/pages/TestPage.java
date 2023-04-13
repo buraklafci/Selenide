@@ -1,9 +1,9 @@
 package pages;
 
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
 import static com.codeborne.selenide.Selenide.*;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 
 public class TestPage {
     //    This is my TestCenter page class
@@ -40,4 +40,11 @@ public class TestPage {
     public SelenideElement month=$(By.id("month"));
 
     public SelenideElement day=$(By.id("day"));
+
+    public ElementsCollection listOfStates=$$(By.xpath("//select[@id='state']//option"));
+
+  //Alert Elements
+    public SelenideElement jsPromptButton=$(By.xpath("//button[@onclick='jsPrompt()']"));
+
+    public SelenideElement resultAlert=$(By.id("result"));
 }

@@ -1,10 +1,13 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 import pages.TestPage;
 
 import static com.codeborne.selenide.Condition.*;
+
 
 public class TestPageStepDefinitions {
     TestPage testPage = new TestPage();
@@ -34,26 +37,23 @@ public class TestPageStepDefinitions {
     //Checkbox_radio
     @Given("I click on {string} if not already selected")
     public void ı_click_on_if_not_already_selected(String string) {
-        if (string.equals("Checkbox 1")&&!testPage.checkbox1.isSelected()) {
+        if (string.equals("Checkbox 1") && !testPage.checkbox1.isSelected()) {
             testPage.checkbox1.shouldNotBe(checked);
             testPage.checkbox1.click();
             testPage.checkbox1.shouldBe(checked);
-        } else if (string.equals("Checkbox 2")&&!testPage.checkbox2.isSelected()) {
+        } else if (string.equals("Checkbox 2") && !testPage.checkbox2.isSelected()) {
             testPage.checkbox2.shouldNotBe(checked);
             testPage.checkbox2.click();
             testPage.checkbox2.shouldBe(checked);
-        }
-        else if (string.equals("red")&&!testPage.red.isSelected()) {
+        } else if (string.equals("red") && !testPage.red.isSelected()) {
             testPage.red.shouldNotBe(checked);
             testPage.red.click();
             testPage.red.shouldBe(checked);
-        }
-        else if (string.equals("yellow")&&!testPage.yellow.isSelected()) {
+        } else if (string.equals("yellow") && !testPage.yellow.isSelected()) {
             testPage.yellow.shouldNotBe(checked);
             testPage.yellow.click();
             testPage.yellow.shouldBe(checked);
-        }
-        else if (string.equals("football")&&!testPage.football.isSelected()) {
+        } else if (string.equals("football") && !testPage.football.isSelected()) {
             testPage.football.shouldNotBe(checked);
             testPage.football.click();
             testPage.football.shouldBe(checked);
@@ -64,13 +64,43 @@ public class TestPageStepDefinitions {
     public void ı_select_the_year_as(Integer int1) {
         testPage.year.selectOption(String.valueOf(int1));
     }
+
     @Given("I select the months as {string}")
     public void ı_select_the_months_as(String string) {
         testPage.month.selectOption(string);
     }
+
     @Given("I select the day as {int}")
     public void ı_select_the_day_as(Integer int1) {
-        testPage.day.selectOption(int1-1);
+        testPage.day.selectOption(int1 - 1);//    index'ten dolayi -1
     }
 
+    @And("I get the list of US states and click on {string}")
+    public void ıGetTheListOfUSStatesAndClickOn(String str) {
+    testPage.listOfStates.forEach(state-> System.out.println(state.getText()));
+        for (SelenideElement states : testPage.listOfStates
+        ) {
+            if (states.getText().equals(str)) {
+                states.click();
+
+                break;
+            }
+        }
     }
+
+    @And("I click on alert prompt")
+    public void ıClickOnAlertPrompt() {
+     testPage.jsPromptButton.click();
+    }
+
+    @And("I enter {string} and click OK")
+    public void ıEnterAndClickOK(String str) {
+        WebDriverRunner.getWebDriver().switchTo().alert().sendKeys(str);
+        WebDriverRunner.getWebDriver().switchTo().alert().accept();
+    }
+
+    @Then("I verify the result contains {string}")
+    public void ıVerifyTheResultContains(String str) {
+        testPage.resultAlert.shouldHave(Condition.text(str));
+    }
+}
