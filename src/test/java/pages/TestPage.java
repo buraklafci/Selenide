@@ -21,4 +21,23 @@ public class TestPage {
     public SelenideElement submitButton=$(By.xpath("//button[@type='submit']"));
 
     public SelenideElement logout=$(By.partialLinkText("Logout"));
+
+    //Locating Checkboxes
+    public SelenideElement checkbox1=$(By.id("box1"));
+
+    public SelenideElement checkbox2=$(By.id("box2"));
+
+    //Locations Radios
+    public  SelenideElement red=$(By.id("red"));
+
+    public  SelenideElement yellow=$(By.id("yellow"));
+
+    public  SelenideElement football=$(By.id("football"));
+
+    //Locating Deopdown Elements
+    public SelenideElement year=$(By.id("year"));
+
+    public SelenideElement month=$(By.id("month"));
+
+    public SelenideElement day=$(By.id("day"));
 }
