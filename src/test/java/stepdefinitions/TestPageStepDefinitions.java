@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 import pages.TestPage;
 
 import static com.codeborne.selenide.Condition.*;
@@ -88,7 +89,7 @@ public class TestPageStepDefinitions {
             }
         }
     }
-
+    //Alert
     @And("I click on alert prompt")
     public void ıClickOnAlertPrompt() {
      testPage.jsPromptButton.click();
@@ -106,6 +107,7 @@ public class TestPageStepDefinitions {
         testPage.resultAlert.shouldHave(Condition.text(str));
     }
 
+    //Frame
     @Given("I verify the page header contains {string}")
     public void ı_verify_the_page_header_contains(String string) {
        //is outside of iframe
@@ -120,6 +122,16 @@ public class TestPageStepDefinitions {
     public void ı_click_on_back_to_tech_pro_education_com() {
         //inside the frame
     testPage.backToTechpro.click();
+    }
+
+    //Switch window
+    @Then("I switch  to window {int}")
+    public void ı_switch_to_window(Integer int1) {
+     switchTo().window(int1-1);
+    }
+    @Then("I get the URL of the page and verify it contains {string}")
+    public void ı_get_the_url_of_the_page_and_verify_it_contains(String string) {
+        Assert.assertTrue(WebDriverRunner.url().contains(string));
     }
 
 }
