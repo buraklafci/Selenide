@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="6.835" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="dropdown" name="TC01_selecting_birth year" time="6.572">
+<testsuite name="Cucumber" time="0.238" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="iframe" name="TC01_frame" time="0.019">
 <failure/>
 <system-out><![CDATA[
-Given I navigate to "https://testcenter.techproeducation.com/index.php?page=dropdown".passed
-And I select the year as 2000...............................................undefined
-And I select the months as "June"...........................................skipped
-And I select the day as 10..................................................skipped
+Given I navigate to "https://testcenter.techproeducation.com/index.php?page=iframe".passed
+And I verify the page header contains "iframe"..............................undefined
+And I switch to the frame 1.................................................skipped
+And I click on Back to TechProEducation.com.................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -47,4 +47,9 @@ public class TestPage {
     public SelenideElement jsPromptButton=$(By.xpath("//button[@onclick='jsPrompt()']"));
 
     public SelenideElement resultAlert=$(By.id("result"));
+
+    //Frame Elements
+    public SelenideElement pageHeader=$(By.xpath("//h3"));
+
+    public SelenideElement backToTechpro=$(By.xpath("//a[@class='btn btn-primary btn-lg']"));
 }

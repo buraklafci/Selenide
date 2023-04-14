@@ -7,6 +7,7 @@ import io.cucumber.java.en.*;
 import pages.TestPage;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 
 public class TestPageStepDefinitions {
@@ -96,6 +97,7 @@ public class TestPageStepDefinitions {
     @And("I enter {string} and click OK")
     public void ıEnterAndClickOK(String str) {
         WebDriverRunner.getWebDriver().switchTo().alert().sendKeys(str);
+        //switchTo().alert().sendKeys(str); //seklinde olabilir
         WebDriverRunner.getWebDriver().switchTo().alert().accept();
     }
 
@@ -103,4 +105,21 @@ public class TestPageStepDefinitions {
     public void ıVerifyTheResultContains(String str) {
         testPage.resultAlert.shouldHave(Condition.text(str));
     }
+
+    @Given("I verify the page header contains {string}")
+    public void ı_verify_the_page_header_contains(String string) {
+       //is outside of iframe
+        testPage.pageHeader.shouldHave(text(string));
+    }
+    @Given("I switch to the frame {int}")
+    public void ı_switch_to_the_frame(Integer int1) {
+       // WebDriverRunner.getWebDriver().switchTo().frame(int1-1);
+        switchTo().frame(int1-1);
+    }
+    @Given("I click on Back to TechProEducation.com")
+    public void ı_click_on_back_to_tech_pro_education_com() {
+        //inside the frame
+    testPage.backToTechpro.click();
+    }
+
 }
