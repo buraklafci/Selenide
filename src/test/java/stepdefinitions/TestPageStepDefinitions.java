@@ -124,7 +124,7 @@ public class TestPageStepDefinitions {
     testPage.backToTechpro.click();
     }
 
-    //Switch window
+    //Switch Window
     @Then("I switch  to window {int}")
     public void ı_switch_to_window(Integer int1) {
      switchTo().window(int1-1);
