@@ -52,4 +52,9 @@ public class TestPage {
     public SelenideElement pageHeader=$(By.xpath("//h3"));
 
     public SelenideElement backToTechpro=$(By.xpath("//a[@class='btn btn-primary btn-lg']"));
+
+    //Actions
+    public SelenideElement source = $(By.id("draggable"));
+
+    public SelenideElement target = $(By.id("droppable"));
 }

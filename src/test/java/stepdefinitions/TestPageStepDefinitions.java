@@ -8,6 +8,7 @@ import org.junit.Assert;
 import pages.TestPage;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.actions;
 import static com.codeborne.selenide.Selenide.switchTo;
 
 
@@ -132,6 +133,13 @@ public class TestPageStepDefinitions {
     @Then("I get the URL of the page and verify it contains {string}")
     public void ı_get_the_url_of_the_page_and_verify_it_contains(String string) {
         Assert.assertTrue(WebDriverRunner.url().contains(string));
-    }
 
+    }
+    //Actions
+    @When("I drag the source in the target")
+    public void ıDragTheSourceInTheTarget() {
+        //actions().dragAndDrop(testPage.source,testPage.target).build().perform();
+        actions().dragAndDrop(testPage.source,305,167,).perform();
+        //actions().clickAndHold(testPage.source).moveToElement(testPage.target).perform();
+    }
 }
