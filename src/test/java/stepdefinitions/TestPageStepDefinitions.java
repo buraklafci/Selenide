@@ -9,10 +9,10 @@ import org.openqa.selenium.Keys;
 import pages.TestPage;
 
 import java.time.Duration;
+import java.util.Date;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.actions;
-import static com.codeborne.selenide.Selenide.switchTo;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestPageStepDefinitions {
@@ -179,4 +179,5 @@ public class TestPageStepDefinitions {
 
 
     }
+
 }

@@ -63,4 +63,7 @@ public class TestPage {
 
     public SelenideElement resultExplicitWait=$(By.xpath("//h4[.='Hello World!']"));
 
+    //Screenshot
+    public SelenideElement upcomingPrograms= $( By.xpath("//div[@data-id='6f475f3']"));
+
 }

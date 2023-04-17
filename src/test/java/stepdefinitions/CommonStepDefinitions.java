@@ -1,12 +1,26 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import io.cucumber.java.en.*;
+
+import java.util.Date;
+
+import static com.codeborne.selenide.Selenide.screenshot;
+
 
 public class CommonStepDefinitions {
     @Given("I set Configuration.screenshot to false")
     public void ı_set_configuration_screenshot_to_false() {
-//        will not take the screenshot even if the test case fails
+    //   will not take the screenshot even if the test case fails
         Configuration.screenshots=false;
+    }
+
+    //Screenshot
+    @And("I capture the screenshot of the page")
+    public void ıCaptureTheScreenshotOfThePage() {
+        //        Selenide.screenshot("my_screenshot");//OR SIMPLY
+        screenshot(new Date().toString());//giving a dynamic name
     }
 }
