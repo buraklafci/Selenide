@@ -5,7 +5,10 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.TestPage;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.actions;
@@ -139,7 +142,41 @@ public class TestPageStepDefinitions {
     @When("I drag the source in the target")
     public void ıDragTheSourceInTheTarget() {
         //actions().dragAndDrop(testPage.source,testPage.target).build().perform();
-        actions().dragAndDrop(testPage.source,305,167,).perform();
-        //actions().clickAndHold(testPage.source).moveToElement(testPage.target).perform();
+        //actions().dragAndDropBy(testPage.source,305,167).perform();
+        actions().clickAndHold(testPage.source).moveToElement(testPage.target).perform();
+    }
+
+    @And("I scroll the page down")
+    public void ıScrollThePageDown() {
+       actions().sendKeys(Keys.PAGE_DOWN).perform();
+        //a little bit
+        actions().sendKeys(Keys.ARROW_DOWN).build().perform();
+    }
+
+    //Explicit Wait
+    @And("I click on start button")
+    public void ıClickOnStartButton() {
+        testPage.startButton.click();
+    }
+
+    @Then("verify the Hello World! text is displayed")
+    public void verifyTheHelloWorldTextIsDisplayed() {
+  //      FAILS WITH NO WAIT
+//        System.out.println("TEXT =>>> "+testPage.resultExplicitWait.getText());// Hello World!
+//        Assert.assertEquals("Hello World!",testPage.resultExplicitWait.getText());//FAIL
+
+//        TO FIX THE ISSUE THE BEST OPTION IS EXPLICIT WAIT BECAUSE IT IS DYNAMIC
+//        1. Handle with WebDriverWait class
+//        WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(20));
+//        wait.until(ExpectedConditions.visibilityOf(testPage.resultExplicitWait));
+//        Assert.assertEquals("Hello World!",testPage.resultExplicitWait.getText());//PASS
+
+
+//        2. selenide wait
+//        testPage.helloWorld.should(visible,Duration.ofSeconds(20)); //OR
+        testPage.resultExplicitWait.should(visible,Duration.ofSeconds(20));
+        Assert.assertEquals("Hello World!",testPage.resultExplicitWait.getText());
+
+
     }
 }

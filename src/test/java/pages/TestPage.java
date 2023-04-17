@@ -57,4 +57,10 @@ public class TestPage {
     public SelenideElement source = $(By.id("draggable"));
 
     public SelenideElement target = $(By.id("droppable"));
+
+    //Explicit wait
+    public SelenideElement startButton=$(By.xpath("//button[.='Start']"));
+
+    public SelenideElement resultExplicitWait=$(By.xpath("//h4[.='Hello World!']"));
+
 }

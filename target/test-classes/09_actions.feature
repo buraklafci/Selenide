@@ -5,3 +5,8 @@ Feature:  actions
     When I drag the source in the target
     And I hold the browser open
 
+    Scenario: TC02 actions
+      Given I navigate to "https://testcenter.techproeducation.com/"
+      And I scroll the page down
+      And I hold the browser open
+

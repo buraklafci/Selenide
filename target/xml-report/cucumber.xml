@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.352" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="iframe" name="TC01_frame" time="0.046">
+<testsuite name="Cucumber" time="0.453" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="explicit wait" name="TC01 explicit wait" time="0.022">
 <failure/>
 <system-out><![CDATA[
-Given I navigate to "https://testcenter.techproeducation.com/index.php?page=iframe".passed
-And I verify the page header contains "iframe"..............................passed
-And I switch to the frame 1.................................................passed
-And I click on Back to TechProEducation.com.................................passed
-And I hold the browser open.................................................passed
-Then I switch  to window 2..................................................undefined
-Then I get the URL of the page and verify it contains "techproeducation"....skipped
+Given I navigate to "https://the-internet.herokuapp.com/dynamic_loading/1"..passed
+And I set Configuration.screenshot to false.................................undefined
+And I click on start button.................................................skipped
+Then verify the Hello World! text is displayed..............................skipped
 ]]></system-out>
 </testcase>
 </testsuite>
