@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"},
         features = "C:\\Users\\burak\\IdeaProjects\\my-selenide-project",
         glue = "stepdefinitions",
-        tags = "@explicit_wait",
-        dryRun = true
+        tags = "@screenshot_page",
+        dryRun = false
 
 )
 

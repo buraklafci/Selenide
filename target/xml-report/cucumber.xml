@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.453" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="explicit wait" name="TC01 explicit wait" time="0.022">
-<failure/>
+<testsuite name="Cucumber" time="4.714" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="screenshots" name="entire page" time="4.491">
 <system-out><![CDATA[
-Given I navigate to "https://the-internet.herokuapp.com/dynamic_loading/1"..passed
-And I set Configuration.screenshot to false.................................undefined
-And I click on start button.................................................skipped
-Then verify the Hello World! text is displayed..............................skipped
+Given I navigate to "https://techproeducation.com"..........................passed
+And I capture the screenshot of the page....................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

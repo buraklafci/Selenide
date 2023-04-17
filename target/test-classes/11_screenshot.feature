@@ -1,4 +1,3 @@
-
 Feature: screenshots
   @screenshot_page
   Scenario: entire page
