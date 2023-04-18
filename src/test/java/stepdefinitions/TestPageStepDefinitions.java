@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.TestPage;
 
+import java.text.DateFormat;
 import java.time.Duration;
 import java.util.Date;
 
@@ -144,6 +145,7 @@ public class TestPageStepDefinitions {
         //actions().dragAndDrop(testPage.source,testPage.target).build().perform();
         //actions().dragAndDropBy(testPage.source,305,167).perform();
         actions().clickAndHold(testPage.source).moveToElement(testPage.target).perform();
+
     }
 
     @And("I scroll the page down")
