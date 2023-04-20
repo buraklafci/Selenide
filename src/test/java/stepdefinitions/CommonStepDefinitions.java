@@ -1,10 +1,15 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import io.cucumber.java.en.*;
 
+
+import java.time.DateTimeException;
+import java.time.DayOfWeek;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.screenshot;
@@ -21,6 +26,24 @@ public class CommonStepDefinitions {
     @And("I capture the screenshot of the page")
     public void ıCaptureTheScreenshotOfThePage() {
         //        Selenide.screenshot("my_screenshot");//OR SIMPLY
-        screenshot(new Date().toString());//giving a dynamic name
+        screenshot(String.valueOf(new Date().getTime()));//giving a dynamic name
+    }
+
+    @Given("I open the {string} browser")
+    public void ıOpenTheBrowser(String browser) {
+        switch (browser){
+            case "headless":
+                Configuration.headless=true;
+                break;
+            case "firefox":
+                Configuration.browser="firefox";
+                break;
+            case "edge":
+                Configuration.browser="edge";
+                break;
+            default://yazilmasa da default olarak chrome calisir
+                Configuration.browser=browser;
+                break;
+        }
     }
 }
