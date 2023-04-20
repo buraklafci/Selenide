@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.TestPage;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -181,5 +182,23 @@ public class TestPageStepDefinitions {
 
 
     }
+    //file upload
+    @And("I try to upload the file on this path {string}")
+    public void ıTryToUploadTheFileOnThisPath(String str) {
+      //        Getting the file path
+     //                            USER DIRECTORY + FILE PATH = FULL PATH
+        String path=System.getProperty("user.home")+str;
+        System.out.println(path);
+        File fullPath=new File(path);
+        //        Selecting the file
+        testPage.chooseFile.uploadFile(fullPath);
+        //        click upload button
+        testPage.upload.click();
 
+    }
+
+    @Then("I verify the file is uploaded")
+    public void ıVerifyTheFileIsUploaded() {
+        testPage.resultFileUpload.shouldHave(text("File Uploaded!"));
+    }
 }

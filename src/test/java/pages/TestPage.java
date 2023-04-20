@@ -66,4 +66,13 @@ public class TestPage {
     //Screenshot
     public SelenideElement upcomingPrograms= $( By.xpath("//div[@data-id='6f475f3']"));
 
+    //File upload
+    public SelenideElement chooseFile= $( By.id("file-upload"));
+
+    public SelenideElement upload= $( By.id("file-submit"));
+
+    public SelenideElement resultFileUpload=$(By.xpath("//h3"));
+
+
+
 }
