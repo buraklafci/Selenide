@@ -11,10 +11,11 @@ import org.junit.runner.RunWith;
 
         plugin = {"html:target\\cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml"},
+                "junit:target/xml-report/cucumber.xml",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "C:\\Users\\burak\\IdeaProjects\\my-selenide-project",
         glue = "stepdefinitions",
-        tags = "@screenshot_page",
+        tags = "@js_executor",
         dryRun = false
 
 )

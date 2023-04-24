@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="4.714" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="screenshots" name="entire page" time="4.491">
+<testsuite name="Cucumber" time="11.424" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="js executor" name="TC01 js executor" time="11.268">
 <system-out><![CDATA[
-Given I navigate to "https://techproeducation.com"..........................passed
+Given I navigate to "https://amazon.com"....................................passed
+And I wait for 2 seconds....................................................passed
+And I scroll down to footer section by js...................................passed
 And I capture the screenshot of the page....................................passed
+And I click on "Amazon Music" by js on amazon table.........................passed
+Then I hold the browser open................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

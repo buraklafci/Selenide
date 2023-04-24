@@ -1,3 +1,4 @@
+@js_executor
 Feature: js executor
   Scenario: TC01 js executor
     Given I navigate to "https://amazon.com"
