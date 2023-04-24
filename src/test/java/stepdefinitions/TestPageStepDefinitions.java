@@ -1,10 +1,12 @@
 package stepdefinitions;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import pages.TestPage;
 
@@ -200,5 +202,22 @@ public class TestPageStepDefinitions {
     @Then("I verify the file is uploaded")
     public void ıVerifyTheFileIsUploaded() {
         testPage.resultFileUpload.shouldHave(text("File Uploaded!"));
+    }
+
+    //jsexecutor
+    @And("I scroll down to footer section by js")
+    public void ıScrollDownToFooterSectionByJs() {
+       // Selenide.executeJavaScript();
+        SelenideElement footerElement=$(By.xpath("//table[@class='navFooterMoreOnAmazon']"));
+        executeJavaScript("arguments[0].scrollIntoView();",footerElement);
+    }
+
+    @And("I click on {string} by js on amazon table")
+    public void ıClickOnByJsOnAmazonTable(String str) {
+        SelenideElement element=$(By.xpath("//table[@class='navFooterMoreOnAmazon']//*[contains(text(),'"+str+"')]"));
+        executeJavaScript("arguments[0].click();",element);
+
+        //Alternatively locating the element with js
+       // executeJavaScript("document.getElementById('icp-nav-flyout').click();");
     }
 }
